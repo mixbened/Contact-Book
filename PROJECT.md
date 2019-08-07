@@ -55,7 +55,7 @@ Follow this quick guide to code the whole program. Try to code with the instruct
 + greet the user
 + show the list of names
     + do not print the list, loop through it, so the names will appear under each other
-
+<details><summary>Solution</summary>
 ```python
 print("Welcome to your Contact Book :-)")
 
@@ -66,6 +66,7 @@ print("These are your contacts: \n")
 for contact in contacts:
     print(contact)
 ```
+<details/>
 
 #### PART II
 
