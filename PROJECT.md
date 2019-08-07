@@ -67,7 +67,7 @@ print("These are your contacts: \n")
 for contact in contacts:
     print(contact)
 ```
-<details/>
+</details>
 
 #### PART II
 
