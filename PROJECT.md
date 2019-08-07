@@ -56,22 +56,104 @@ Follow this quick guide to code the whole program. Try to code with the instruct
 + show the list of names
     + do not print the list, loop through it, so the names will appear under each other
 
+```python
+print("Welcome to your Contact Book :-)")
+
+contacts = ["Theodor", "Steph", "Fabian"]
+
+print("These are your contacts: \n")
+
+for contact in contacts:
+    print(contact)
+```
+
 #### PART II
 
-+ show him two options: list, add
++ show two options: list, add
 + you have to have two actions now - differentiate with an if statement
     + list should do the same as in Part 1
     + add should ask for an input and than, add the contact to that list
 + wrap the whole functionality in a while loop and ask if the user wants to close the program oder continue
 
+```python
+print("Welcome to your Contact Book :-)")
+
+# hardcode
+contacts = ["Theodor", "Steph", "Fabian"]
+
+
+while True:
+    # choose action
+    action = input("What do you want to do?: (add / list)")
+    
+    # different actions
+    if action == "list":
+        print("These are your contacts: \n")
+        # loops through list and prints name
+        for contact in contacts:
+            print(contact)
+    elif action == "add":
+        new_contact = input('Type in new Contact: ')
+        # adds name to list
+        contacts.append(new_contact)
+    # not list or add
+    else:
+        print("Please type 'add' oder 'list'")
+        continue
+
+    # break out of the loop if y
+    close = input('Close Program? (y/n)')
+    if close == 'y':
+        print('Thanks, see you.')
+        break
+```
+
 #### PART III
 
 + start with adding contacts:
     + when the user wants to close the program, open the file in write mode
-    + add the dictionary to it
+    + add the list to it
 + reading file when starting
     + open the contacts file in read mode
     + load data with json package so it is a searchable list
+
+```python
+import json
+
+print("Welcome to your Contact Book :-)")
+
+# receiving contacts from the contacts.txt
+with open("contacts.txt", "r") as contacts_file:
+    contacts = json.loads(contacts_file.read())
+
+while True:
+    # choose action
+    action = input("What do you want to do?: (add / list)")
+
+    # different actions
+    if action == "list":
+        print("These are your contacts: \n")
+        # loops through list and prints name
+        for contact in contacts:
+            print(contact)
+    elif action == "add":
+        new_contact = input("Type in new Contact: ")
+        # adds name to list
+        contacts.append(new_contact)
+    # not list or add
+    else:
+        print("Please type 'add' oder 'list'")
+        continue
+
+    # break out of the loop if y
+    close = input("Close Program? (y/n)")
+    if close == "y":
+        print("Thanks, see you.")
+        # add list to contacts file
+        with open("contacts.txt", "w") as contacts_file:
+            contacts_file.write(json.dumps(contacts))
+        break
+```
 
 #### PART IV
 
@@ -79,6 +161,10 @@ Follow this quick guide to code the whole program. Try to code with the instruct
 + add an index property to each contact
 + list the index plus the first name + the last name when user lists the contacts
 + when user adds a contact, create an input for each property AND count indexes so that you can add this +1 as property
+
+```python
+
+```
 
 #### PART V 
 
